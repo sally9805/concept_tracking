@@ -1,4 +1,4 @@
-sententepiece
+sentencepiece
 transformers
 datasets
 tqdm
