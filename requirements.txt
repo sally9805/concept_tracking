@@ -1,4 +1,10 @@
 sentencepiece
-transformers
-datasets
-tqdm
+transformers~=4.35.1
+datasets~=2.14.6
+tqdm~=4.66.1
+torch~=2.1.0
+
+setuptools~=65.5.1
+pandas~=2.1.3
+nltk~=3.8.1
+sentence-transformers

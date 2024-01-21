@@ -1,0 +1,3 @@
+@@378348
+
+If you 're a regular reader of blogs , or indeed of any kind of news website , you 've probably been frustrated from time to time by information overload : the blogosphere creates way too much material for any human being to comfortably digest . Plus , there 's no way of knowing when your favorite sites are updated . Some of the best blog writers publish once a week or less , and who has time to keep visiting these sites in the hope of finding a fresh item ? <P> But there 's a solution to these problems , and it 's simple . Actually , it 's called Real Simple Syndication , or RSS . You start by downloading free software called a newsreader . For PC users , we recommend Bloglines                     
