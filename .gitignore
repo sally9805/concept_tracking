@@ -108,3 +108,5 @@ ENV/
 .idea/
 
 .DS_Store
+
+coha/
