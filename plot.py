@@ -45,13 +45,13 @@ def plot_vectors(strings, vectors, special_colors={'$1': 'red', '$5': 'blue', '$
 
     plt.xlabel('First principal component')
     plt.ylabel('Second principal component')
-    plt.title('2000s')
+    plt.title('1900s')
     plt.show()
 
 
 if __name__ == '__main__':
-    dict1 = read_dict_from_pickle('2000s_anchor_embedding.pkl')
-    dict2 = read_dict_from_pickle('2000s_comparison_embedding.pkl')
+    dict1 = read_dict_from_pickle('1900s_anchor_embedding.pkl')
+    dict2 = read_dict_from_pickle('1900s_adjectives_embedding.pkl')
     dict2.update(dict1)
     dict = {key: value for key, value in dict2.items() if not all(v == 0 for v in value)}
     result = perform_pca(dict)

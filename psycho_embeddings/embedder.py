@@ -7,6 +7,7 @@ import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import *
+from transformers import AutoModelForMaskedLM
 
 
 def find_sub_list(sl: List, l: List):
@@ -56,7 +57,7 @@ class ContextualizedEmbedder:
             model_name, output_hidden_states=True
         ).to(device)
         self.model.eval()
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
         self.max_length = max_length
         self.device = device
 

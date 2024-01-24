@@ -259,8 +259,8 @@ def read_dict_from_pickle(filename):
 
 if __name__ == '__main__':
     nltk.download('punkt')
-    # BERT pre-trained model
-    model = ContextualizedEmbedder("bert-base-cased", max_length=128)
+    # BERT pre-trained model fine-tuned
+    model = ContextualizedEmbedder("sally9805/bert-base-uncased-finetuned-coha-1900s", max_length=128)
     # Phrase pre-trained model
     # model = SentenceTransformer('whaleloops/phrase-bert')
     # anchor_term = '$1'
@@ -278,26 +278,26 @@ if __name__ == '__main__':
     # run_one_pass(model, r'2000s', anchor_term, comparison_terms, 'price_method4_comparison', is_phrase=True,
     #              use_sentence_phrase=False)
     # find_dollar_embedding(model, r'1830s', anchor_term, 'dollar_emb')
-
-    comparison_item = read_words_from_file('items_100.txt')
+    # comparison_item = read_words_from_file('adjectives.txt')
     # comparison_terms = read_words_from_file('adjectives.txt')
     # comparison_terms = comparison_terms_item + comparison_terms_adj
-    # anchor_terms = ['$1', '$5', '$10']
-    years = [r'1830s', r'1880s', r'1930s', r'1980s', r'2000s']
+    anchor_terms = ['$1', '$5', '$10', '$100', '$1000']
+    # years = [r'1830s', r'1880s', r'1930s', r'1980s', r'2000s']
+    years = [r'1900s']
     k = 5
     window_size = 128
     layer_num = 12
     for year in years:
         dictionary = {}
         folder_path = r'coha/COHA text/' + year
-        # for item in anchor_terms:
-        #     anchor_embedding = average_embedding(model, folder_path, item, k, window_size, layer_num, is_phrase=True,
-        #                       weights=(1, 0))
-        #     dictionary[item] = anchor_embedding
-        # save_dict_to_pickle(dictionary, year + '_anchor_embedding.pkl')
-        for item in comparison_item:
-            comparison_embedding = average_embedding(model, folder_path, item, k, window_size, layer_num, is_phrase=False)
-            dictionary[item] = comparison_embedding
-        save_dict_to_pickle(dictionary, year + '_item_embedding.pkl')
+        for item in anchor_terms:
+            anchor_embedding = average_embedding(model, folder_path, item, k, window_size, layer_num, is_phrase=True,
+                              weights=(1, 0))
+            dictionary[item] = anchor_embedding
+        save_dict_to_pickle(dictionary, year + '_anchor_embedding.pkl')
+        # for item in comparison_item:
+        #     comparison_embedding = average_embedding(model, folder_path, item, k, window_size, layer_num, is_phrase=False)
+        #     dictionary[item] = comparison_embedding
+        # save_dict_to_pickle(dictionary, year + '_adjectives_embedding.pkl')
 
 
